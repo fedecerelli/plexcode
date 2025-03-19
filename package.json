@@ -1,0 +1,67 @@
+{
+  "name": "plexcode",
+  "displayName": "PLEXCODE",
+  "description": "Combina archivos de manera intuitiva y minimalista. Una herramienta desarrollada por Plexcel.py.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:extension.createAdvancedFile"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.createAdvancedFile",
+        "title": "PLEXCODE: Crear archivo avanzado",
+        "category": "PLEXCODE"
+      }
+    ],
+  "configuration": {
+      "title": "PLEXCODE Settings",
+      "properties": {
+        "plexcode.showIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Habilitar o deshabilitar íconos en los menús."
+        },
+        "plexcode.defaultFormat": {
+          "type": "string",
+          "enum": [".txt", ".md", ".html", ".json"],
+          "default": ".txt",
+          "description": "Formato predeterminado para archivos generados."
+        },
+        "plexcode.autoCompress": {
+          "type": "boolean",
+          "default": false,
+          "description": "Comprimir automáticamente el archivo generado."
+        },
+        "plexcode.showAttribution": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mostrar la atribución 'Desarrollado por Plexcel.py' en los archivos generados."
+        }
+      }
+    }
+  },
+"scripts": {
+  "vscode:prepublish": "npm run compile",
+  "compile": "tsc -p ./",
+  "watch": "tsc -watch -p ./"
+},
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.3.5",
+    "vsce": "^1.96.1"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "crypto-js": "^4.1.1",
+    "simple-git": "^3.16.0"
+  }
+}
